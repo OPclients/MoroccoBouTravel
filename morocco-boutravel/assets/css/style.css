@@ -641,6 +641,123 @@ body.modal-open { overflow: hidden; }
 }
 .map-card iframe { width: 100%; height: 560px; border: 0; display: block; }
 
+/* Legal Pages */
+.legal-page {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(251, 191, 36, 0.16), transparent 24rem),
+    radial-gradient(circle at 88% 10%, rgba(20, 184, 166, 0.12), transparent 22rem),
+    var(--bg);
+}
+.legal-hero {
+  width: min(calc(100% - 40px), 900px);
+  margin: 0 auto;
+  padding: 96px 0 34px;
+  text-align: center;
+}
+.section-kicker {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 auto 14px;
+  padding: 7px 11px;
+  border: 1px solid rgba(20, 184, 166, 0.35);
+  border-radius: 999px;
+  background: rgba(20, 184, 166, 0.14);
+  color: var(--turquoise);
+  font-family: Arial, sans-serif;
+  font-size: 0.77rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.legal-hero h1 {
+  color: var(--brown);
+  font-size: clamp(2.3rem, 6vw, 4.8rem);
+  line-height: 1;
+}
+.legal-hero p:not(.section-kicker) {
+  max-width: 760px;
+  margin: 18px auto 0;
+  font-size: 1.08rem;
+}
+.legal-content {
+  width: min(calc(100% - 40px), 900px);
+  margin: 0 auto;
+  padding: 28px 0 80px;
+}
+.legal-card {
+  display: grid;
+  gap: 30px;
+  padding: clamp(24px, 5vw, 44px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-card);
+}
+.legal-section {
+  display: grid;
+  gap: 10px;
+}
+.legal-section h2 {
+  color: var(--brown);
+  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+  line-height: 1.15;
+}
+.legal-section p,
+.legal-section li {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.legal-section ul {
+  display: grid;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding-left: 22px;
+}
+.legal-updated {
+  padding: 16px 18px;
+  border: 1px solid rgba(249, 115, 22, 0.22);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 239, 209, 0.78);
+  color: var(--brown);
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+}
+.legal-cta {
+  width: min(calc(100% - 40px), 900px);
+  margin: 0 auto 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px;
+  border-radius: var(--radius-md);
+  background: var(--brown);
+  box-shadow: var(--shadow-soft);
+}
+.legal-cta h2 {
+  color: var(--bg);
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1.05;
+}
+.legal-cta p {
+  color: rgba(255, 247, 232, 0.82);
+  margin-top: 6px;
+}
+.legal-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--orange), var(--yellow));
+  color: var(--dark);
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 /* Modal */
 .modal {
   position: fixed;
@@ -710,7 +827,7 @@ body.modal-open { overflow: hidden; }
 .footer-logo { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 14px; font-weight: 800; }
 .footer-logo img { width: 54px; height: 54px; object-fit: contain; }
 .site-footer h3, .site-footer h4 { color: var(--bg); margin-bottom: 12px; }
-.site-footer h4::after {
+.site-footer h3::after, .site-footer h4::after {
   content: "";
   display: block;
   width: 42px;
@@ -721,6 +838,7 @@ body.modal-open { overflow: hidden; }
 }
 .site-footer p, .site-footer a { color: rgba(255,247,232,0.76); }
 .site-footer ul { list-style: none; padding: 0; display: grid; gap: 8px; }
+.site-footer nav { display: grid; align-content: start; gap: 8px; }
 .site-footer a:hover { color: var(--yellow); }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.12);
@@ -781,6 +899,7 @@ body.modal-open { overflow: hidden; }
   .overlap-images img { position: static; width: 100%; height: 310px; }
   .overlap-images img:last-child { border: 0; }
   .cta-box { display: grid; }
+  .legal-cta { display: grid; }
   .form-grid, .modal-lists { grid-template-columns: 1fr; }
   .map-card iframe { height: 440px; }
 }
