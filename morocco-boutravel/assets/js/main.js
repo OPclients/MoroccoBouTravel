@@ -1,10 +1,82 @@
 document.addEventListener("DOMContentLoaded", () => {
+  renderSharedLayout();
   initMobileMenu();
   initTourFilters();
   initTourModal();
   initContactForm();
   initSmoothScroll();
 });
+
+function renderSharedLayout() {
+  const headerMount = document.querySelector("[data-site-header]");
+  const footerMount = document.querySelector("[data-site-footer]");
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+  const navItems = [
+    { href: "index.html", label: "Home" },
+    { href: "tours.html", label: "Tours" },
+    { href: "about.html", label: "About Us" },
+    { href: "contact.html", label: "Contact" }
+  ];
+
+  if (headerMount) {
+    headerMount.outerHTML = `
+      <header class="site-header">
+        <div class="container header-inner">
+          <a class="brand" href="index.html" aria-label="Morocco BouTravel home">
+            <img src="assets/images/logo.png" alt="Morocco BouTravel logo">
+            <span>Morocco<br>BouTravel</span>
+          </a>
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+          <nav class="site-nav" aria-label="Main navigation">
+            <ul class="nav-list">
+              ${navItems.map((item) => `<li><a${item.href === currentPage ? ' class="active"' : ""} href="${item.href}">${item.label}</a></li>`).join("")}
+            </ul>
+          </nav>
+        </div>
+      </header>
+    `;
+  }
+
+  if (footerMount) {
+    footerMount.outerHTML = `
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="footer-logo" href="index.html">
+              <img src="assets/images/logo.png" alt="Morocco BouTravel logo">
+              <span>Morocco BouTravel</span>
+            </a>
+            <p>Private Morocco tours, desert journeys, imperial cities, day trips, and tailor-made routes by local experts in Marrakech.</p>
+          </div>
+          <div>
+            <h4>Important links</h4>
+            <ul>
+              ${navItems.map((item) => `<li><a href="${item.href}">${item.label}</a></li>`).join("")}
+            </ul>
+          </div>
+          <nav aria-label="Useful links">
+            <h3>Useful Links</h3>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+            <a href="cancellation-policy.html">Cancellation Policy</a>
+            <a href="contact.html">Plan Your Trip</a>
+          </nav>
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:boutravel50@gmail.com">boutravel50@gmail.com</a></li>
+              <li><a href="tel:+212663400243">+212 663-400243</a></li>
+              <li>Marrakech, Morocco</li>
+              <li><a class="btn btn-primary btn-small" href="https://wa.me/212663400243" target="_blank" rel="noopener">WhatsApp Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="container footer-bottom">Copyright &copy; 2026 Morocco BouTravel. All rights reserved.</div>
+      </footer>
+    `;
+  }
+}
 
 function initMobileMenu() {
   const toggle = document.querySelector(".menu-toggle");
